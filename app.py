@@ -5,6 +5,10 @@ from flask import Flask, abort, redirect, render_template, request
 
 from src.models import db
 from src.repositories.movie_repository import movie_repository_singleton
+from app import app
+
+with app.app_context():
+    db.create_all()
 
 load_dotenv()
 

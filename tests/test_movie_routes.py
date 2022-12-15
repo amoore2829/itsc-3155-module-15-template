@@ -87,3 +87,7 @@ def test_create_movie_400(test_app: FlaskClient):
 
     # Asserts
     assert res.status_code == 400
+
+def refresh_db():
+    Movie.query.delete()
+    db.session.commit()
